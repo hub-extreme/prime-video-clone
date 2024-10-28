@@ -16,6 +16,7 @@ COPY . .
 RUN npm run build
 
 # Stage 2: Serve the React app with Nginx
+FROM nginx
 
 # Copy the build output to Nginx's html directory
 COPY --from=build /app/build /usr/share/nginx/html
