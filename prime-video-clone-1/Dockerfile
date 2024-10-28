@@ -16,7 +16,6 @@ COPY . .
 RUN npm run build
 
 # Stage 2: Serve the React app with Nginx
-FROM nginx:stable-alpine
 
 # Copy the build output to Nginx's html directory
 COPY --from=build /app/build /usr/share/nginx/html
