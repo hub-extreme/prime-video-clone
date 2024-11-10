@@ -2,33 +2,6 @@
 
 ![image](https://github.com/user-attachments/assets/b3db1dc0-5a59-4dcf-9507-b0aeebc7f514)
 
-## Project Videos
-<table>
-  <tr>
-    <td>
-      <a href="https://youtu.be/RDiza4DcGs8?si=w1Y_xL1NBj6eeWgc" target="_blank">
-        <img src="https://ytcards.demolab.com/?id=RDiza4DcGs8&title=Your+New+Video+Title+Here&lang=en&timestamp=0&background_color=%230d1117&title_color=%23ffffff&stats_color=%23dedede&max_title_lines=1&width=250&border_radius=5" alt="Your New Video Title Here" width="250" style="border-radius:5px;">
-      </a>
-    </td>
-    <td>
-      <a href="https://www.youtube.com/watch?v=DACa2_JmVhE&t=598s" target="_blank">
-        <img src="https://ytcards.demolab.com/?id=ZzNP0P35Kio&title=Deploy+Amazon+Prime+Video+Clone+On+EKS+Cluster&lang=en&timestamp=0&background_color=%230d1117&title_color=%23ffffff&stats_color=%23dedede&max_title_lines=1&width=250&border_radius=5" alt="Deploy Amazon Prime Video Clone On EKS Cluster" width="250" style="border-radius:5px;">
-      </a>
-    </td>
-    <td>
-      <a href="https://www.youtube.com/watch?v=ZzNP0P35Kio&t=1094s" target="_blank">
-        <img src="https://ytcards.demolab.com/?id=JIkr2VoY960&title=Deploy+Amazon+Prime+Video+Clone+On+Kind+Cluster&lang=en&timestamp=0&background_color=%230d1117&title_color=%23ffffff&stats_color=%23dedede&max_title_lines=1&width=250&border_radius=5" alt="Deploy Amazon Prime Video Clone On Kind Cluster" width="250" style="border-radius:5px;">
-      </a>
-    </td>
-    <td>
-      <a href="https://www.youtube.com/watch?v=_FH2j3GB8PA&t=83s" target="_blank">
-        <img src="https://ytcards.demolab.com/?id=_FH2j3GB8PA&title=Deploy+Amazon+Prime+Video+Clone+On+EKS+Cluster&lang=en&timestamp=0&background_color=%230d1117&title_color=%23ffffff&stats_color=%23dedede&max_title_lines=1&width=250&border_radius=5" alt="Deploy Amazon Prime Video Clone On EKS Cluster" width="250" style="border-radius:5px;">
-      </a>
-    </td>
-  </tr>
-  <tr>
-  </tr>
-</table>
 
 
 
