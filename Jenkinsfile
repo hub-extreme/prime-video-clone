@@ -14,9 +14,10 @@ pipeline {
 
         stage('Git Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/Fir3eye/Prime-Video-Clone.git'
+                git branch: 'main', url: 'https://github.com/hub-extreme/prime-video-clone.git'
             }
         }
+    
         stage ("Trivy File Scan") {
             steps {
                 sh "trivy fs . > trivy.txt"
@@ -32,15 +33,15 @@ pipeline {
         }
         stage ("Trivy Image Scan") {
             steps {
-                sh "trivy image fir3eye/prime-clone:latest"
+                sh "trivy image prime-clone ."
             }
         }
         stage('Tag & Push to DockerHub') {
             steps {
                 script {
                     withDockerRegistry([ credentialsId: 'dockerhubs', url: '' ]) {
-                        sh "docker tag prime-clone:latest fir3eye/prime-clone:latest"
-                        sh "docker push fir3eye/prime-clone:latest"
+                        sh "docker tag prime-clone:latest yuvrajdocker001/prime-clone:latest"
+                        sh "docker push yuvrajdocker001/prime-clone:latest"
                     }
                 }
             }
