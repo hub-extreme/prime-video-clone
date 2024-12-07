@@ -12,6 +12,6 @@ spec:
     targetPort: 80
   selector:
     app: prime-deploy
-  type: NodePort
+  type: loadbalancer
 status:
   loadBalancer: {}
