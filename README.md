@@ -90,7 +90,7 @@ pipeline {
 
         stage('Git Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/Fir3eye/Prime-Video-Clone.git'
+                git branch: 'main', url: 'https://github.com/hub-extreme/Prime-Video-Clone.git'
             }
         }
         stage("Sonarqube Analysis") {
@@ -119,22 +119,22 @@ pipeline {
         }
         stage ("Trivy Image Scan") {
             steps {
-                sh "trivy image fir3eye/prime-clone:latest"
+                sh "trivy image hub-extreme/prime-clone:latest"
             }
         }
         stage('Tag & Push to DockerHub') {
             steps {
                 script {
                     withDockerRegistry([ credentialsId: 'dockerhub', url: '' ]) {
-                        sh "docker tag prime-clone:latest fir3eye/prime-clone:latest"
-                        sh "docker push fir3eye/prime-clone:latest"
+                        sh "docker tag prime-clone:latest hub-extreme/prime-clone:latest"
+                        sh "docker push hub-extreme/prime-clone:latest"
                     }
                 }
             }
         }
         stage ("Deploy to Container") {
             steps {
-                sh 'docker run -d --name amazon-prime -p 80:80 fir3eye/prime-clone:latest'
+                sh 'docker run -d --name amazon-prime -p 80:80 hub-extreme/prime-clone:latest'
             }
         }
         stage('Deploy to Kubernetes') {
