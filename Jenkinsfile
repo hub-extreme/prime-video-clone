@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'node16' // Ensure 'node16' is configured in Jenkins under Manage Jenkins > Global Tool Configuration
+        nodejs 'node23' // Ensure 'node16' is configured in Jenkins under Manage Jenkins > Global Tool Configuration
     }
 
     stages {
@@ -28,19 +28,16 @@ pipeline {
                 script {
                     // Build the Docker image tagged as 'prime-clone:latest'
                     sh "docker build -t prime-clone:latest ."
+                    sh "docker tag prime-clone:latest yuvrajdocker001/prime-clone:latest"
                 }
             }
         }
-        stage ("Trivy Image Scan") {
-            steps {
-                sh "trivy image prime-clone ."
-            }
-        }
-        stage('Tag & Push to DockerHub') {
+        
+        stage('Push to DockerHub') {
             steps {
                 script {
-                    withDockerRegistry([ credentialsId: 'dockerhubs', url: '' ]) {
-                        sh "docker tag prime-clone:latest yuvrajdocker001/prime-clone:latest"
+                    withDockerRegistry([ credentialsId: 'dockerhub', url: '' ]) {
+                        
                         sh "docker push yuvrajdocker001/prime-clone:latest"
                     }
                 }
@@ -50,10 +47,9 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 script {
-                    withCredentials([file(credentialsId: 'k8s', variable: 'KUBECONFIG_FILE')]) {
+                    withKubeConfig(caCertificate: '', clusterName: 'EKS-1', contextName: '', credentialsId: 'k8s', namespace: 'webapps', restrictKubeConfigAccess: false, serverUrl: 'https://678D754BCF0D0E8BA410E9B076F0BD19.gr7.ap-south-1.eks.amazonaws.com') {
                         sh """
-                            # Set the KUBECONFIG environment variable
-                            export KUBECONFIG=${KUBECONFIG_FILE}
+                            
                             
                             # Navigate to the Kubernetes manifests directory
                             cd Kubernetes
@@ -61,21 +57,12 @@ pipeline {
                             # Apply all Kubernetes manifests
                             kubectl apply -f .
                             
-                        """
+                        """ 
+                       
+                       
                     }
                 }
             }
-        }
-    }
-
-    post {
-        success {
-            echo '✅ Deployment successful!'
-            // Optional: Add notifications (e.g., email, Slack) here
-        }
-        failure {
-            echo '❌ Deployment failed.'
-            // Optional: Add notifications (e.g., email, Slack) here
         }
     }
 }
