@@ -1,6 +1,6 @@
 # Deploy Amazon Prime Clone Application AWS using DevSecOps Approach
 
-![image](https://github.com/user-attachments/assets/b3db1dc0-5a59-4dcf-9507-b0aeebc7f514)
+
 
 
 
